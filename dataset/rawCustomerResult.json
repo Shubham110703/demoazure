@@ -1,5 +1,5 @@
 {
-	"name": "custres",
+	"name": "rawCustomerResult",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ABS_01",
