@@ -1,5 +1,5 @@
 {
-	"name": "custcsv",
+	"name": "rawCustomer",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ABS_01",

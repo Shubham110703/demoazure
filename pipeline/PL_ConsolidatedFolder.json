@@ -48,13 +48,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "order",
+						"referenceName": "rawOrder",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "orderres",
+						"referenceName": "rawOrderResult",
 						"type": "DatasetReference"
 					}
 				]
@@ -108,13 +108,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "custcsv",
+						"referenceName": "rawCustomer",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "custres",
+						"referenceName": "rawCustomerResult",
 						"type": "DatasetReference"
 					}
 				]

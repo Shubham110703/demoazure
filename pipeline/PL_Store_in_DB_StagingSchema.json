@@ -45,7 +45,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "orderres",
+						"referenceName": "rawOrderResult",
 						"type": "DatasetReference"
 					}
 				],
@@ -99,7 +99,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "custres",
+						"referenceName": "rawCustomerResult",
 						"type": "DatasetReference"
 					}
 				],

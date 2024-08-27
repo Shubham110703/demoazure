@@ -13,14 +13,14 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "staging_CustomerTable",
+						"referenceName": "prep_CustomerTable",
 						"type": "DatasetReference"
 					},
 					"name": "Customer"
 				},
 				{
 					"dataset": {
-						"referenceName": "staging_OrderTable",
+						"referenceName": "prep_OrderTable",
 						"type": "DatasetReference"
 					},
 					"name": "Order"
@@ -39,14 +39,21 @@
 						"referenceName": "prep_CustomerTable",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "Sink1"
 				},
 				{
 					"dataset": {
 						"referenceName": "prep_OrderTable",
 						"type": "DatasetReference"
 					},
-					"name": "sink2"
+					"name": "Sink3"
+				},
+				{
+					"dataset": {
+						"referenceName": "reportFinal",
+						"type": "DatasetReference"
+					},
+					"name": "Sink2"
 				}
 			],
 			"transformations": [
@@ -70,6 +77,9 @@
 				},
 				{
 					"name": "aggregate2"
+				},
+				{
+					"name": "aggregate3"
 				}
 			],
 			"scriptLines": [
@@ -98,8 +108,8 @@
 				"          Address as string,",
 				"          City as string,",
 				"          State as string,",
-				"          ZipCode as string,",
-				"          Country as string",
+				"          Country as string,",
+				"          ZipCode as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
@@ -110,9 +120,9 @@
 				"          ProductID as string,",
 				"          ProductName as string,",
 				"          Quantity as string,",
-				"          OrderTimestamp as string,",
 				"          Price as string,",
-				"          CustomerID as string",
+				"          CustomerID as string,",
+				"          OrderTimestamp as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
@@ -159,6 +169,17 @@
 				"          Price,",
 				"          CustomerID),",
 				"     OrderTimestamp = max(OrderTimestamp)) ~> aggregate2",
+				"join1 aggregate(groupBy(Customer@CustomerID,",
+				"          FirstName,",
+				"          LastName,",
+				"          Email,",
+				"          OrderID,",
+				"          ProductID,",
+				"          ProductName,",
+				"          Quantity,",
+				"          Price),",
+				"     ZipCode = max(ZipCode),",
+				"          OrderTimestamp = max(OrderTimestamp)) ~> aggregate3",
 				"sort1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
@@ -169,7 +190,7 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink1",
+				"     errorHandlingOption: 'stopOnFirstError') ~> Sink1",
 				"aggregate2 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
@@ -180,7 +201,17 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
+				"     errorHandlingOption: 'stopOnFirstError') ~> Sink3",
+				"aggregate3 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> Sink2"
 			]
 		}
 	}

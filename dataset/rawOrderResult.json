@@ -1,5 +1,5 @@
 {
-	"name": "orderres",
+	"name": "rawOrderResult",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ABS_01",
