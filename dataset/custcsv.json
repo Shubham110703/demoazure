@@ -1,5 +1,5 @@
 {
-	"name": "custres",
+	"name": "custcsv",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ABS_01",
@@ -10,9 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "customerTable",
-				"folderPath": "Customer",
-				"container": "output"
+				"container": "input"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -61,6 +59,5 @@
 				"type": "String"
 			}
 		]
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }
