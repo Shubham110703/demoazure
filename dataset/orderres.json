@@ -10,7 +10,9 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"container": "output-orders"
+				"fileName": "orderTable",
+				"folderPath": "Orders",
+				"container": "output"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
