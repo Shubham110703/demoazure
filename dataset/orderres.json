@@ -11,8 +11,8 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "orderTable",
-				"folderPath": "Orders",
-				"container": "output"
+				"folderPath": "OrderDetails",
+				"container": "consolidatedfolder"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

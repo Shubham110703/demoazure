@@ -11,8 +11,8 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "customerTable",
-				"folderPath": "Customer",
-				"container": "output"
+				"folderPath": "CustomerDetails",
+				"container": "consolidatedfolder"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
